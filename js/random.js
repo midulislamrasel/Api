@@ -11,9 +11,10 @@ const displayUsers = users => {
         const userDiv = document.createElement('div');
         userDiv.classList.add('user');
         userDiv.innerHTML = `
-        <h3> User Name : ${user.name.first}</h3>
+        <h3> User Name : First ${user.name.first}  ${user.name.last}</h3>
         <p>Gander : ${user.gender}</p>
         <p>Email ${user.email}</p>
+        <p>user location :  ${user.location.country} </p>
         <img src="${user.picture.large}" alt="photo">
 
         `;
