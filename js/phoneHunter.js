@@ -30,6 +30,7 @@ const displayPhone = phones => {
                 <h4>${phone.brand}</h4>
                 <p class="card-text">${phone.slug}</p>
             </div>
+            <button onclick="loadPhoneDetails()" type="button" class="btn btn-primary">Primary</button>
         </div>
         
         `;
@@ -54,4 +55,10 @@ const toggleSpinner = isLoading => {
     } else {
         loaderSpinner.classList.add('d-none')
     }
+}
+const loadPhoneDetails = async id => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    const res = await fetch(url);
+    const data = await res.json()
+    console.log(data,data)
 }
