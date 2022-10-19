@@ -1,10 +1,28 @@
 // cba96238748e17e2519174725c61b16c
 const cty_Api = `cba96238748e17e2519174725c61b16c`
-const loadWeather = (sears) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon=&appid=${cty_Api}`
+const loadWeather = search => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${cty_Api}&units=metric`
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => displayTemperatures(data))
 }
 
-loadWeather()
+const displayTemperatures = cityName => {
+    // const searchCity = document.getElementById('temperatures');
+    // searchCity.innerText = cityName.main.temp;
+    setInnerTextById('temperatures',cityName.main.temp)
+    setInnerTextById('clouds',cityName.weather[0].main)
+}
+const setInnerTextById = (id, text) => {
+    const temperature = document.getElementById(id)
+    temperature.innerText =text
+}
+
+document.getElementById('search-btn').addEventListener('click', function () {
+    searchField = document.getElementById('search-field');
+    const city = searchField.value;
+    document.getElementById('city_name').innerText = city;
+    loadWeather(city)
+})
+
+// loadWeather('Dhaka');
