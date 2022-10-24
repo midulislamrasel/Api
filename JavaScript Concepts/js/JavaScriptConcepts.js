@@ -5,9 +5,6 @@
 4.if return has nothing on the right side will return undefined
 5.property that doesn't 
 6.accessing array elements outside of the index range
-7.
-8.
-9.
-10
+
 
 */
